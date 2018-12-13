@@ -29,7 +29,7 @@ var SceneIntro = new Phaser.Class({
             Phaser.Scene.call(this, { key: 'sceneIntro' });
         },
     create: function () {
-		const nextButton = this.add.text(600, 600, 'Next', { fill: '#87ceeb' });
+		const nextButton = this.add.text(600, 600, 'Next', { fill: '#4d4dff' });
 		nextButton.setInteractive();
 
 		nextButton.on('pointerup', () => this.scene.start('sceneGamePlay'));
@@ -48,16 +48,16 @@ var SceneGameOver = new Phaser.Class({
     },
     create: function () {
 		this.add.image(400, 200, 'nonmelanic_large');
-		const congrats = this.add.text(400, 450, 'Nice job!', { fontSize: '30px', fill: '#87ceeb' })
+		const congrats = this.add.text(400, 450, 'Nice job!', { fontSize: '30px', fill: '#4d4dff' })
 		congrats.setOrigin(0.5);
-		const info = this.add.text(400, 550,
+		const end_info = this.add.text(400, 550,
 	        'melanics: ' + melanics_n +
 	        '    non-melanics: ' + nonmelanics_n +
 	        '    total: ' + total_n,
-			{ fill: '#87ceeb' }
+			{ fill: '#4d4dff' }
 		);
-		info.setOrigin(0.5);
-		const thanks = this.add.text(400, 580, 'Thank you for playing! Ctrl/Cmd+R to play again.', { fill: '#87ceeb' });
+		end_info.setOrigin(0.5);
+		const thanks = this.add.text(400, 580, 'Thank you for playing! Ctrl/Cmd+R to play again.', { fill: '#4d4dff' });
 		thanks.setOrigin(0.5);
 	}
 });
@@ -118,7 +118,7 @@ function createGamePlay ()
         gameObject.emit('clicked', gameObject);
     }, this);
 
-    info = this.add.text(10, 10, '', { fill: '#87ceeb' });
+    info = this.add.text(10, 10, '', { fontSize: '30px', fontWeight: 'bold', fill: '#4d4dff' });
     timer = this.time.addEvent({ delay: ROUND_DURATION, callback: roundOver, callbackScope: this });
 }
 
